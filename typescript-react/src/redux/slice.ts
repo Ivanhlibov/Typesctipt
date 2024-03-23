@@ -10,12 +10,12 @@ const todoSlice = createSlice({
     
 
     reducers:{
-      Addtodo (state, action: PayloadAction <string> ) {
+      Addtodo(state, action: PayloadAction <string> ) {
         const newTodo = {id: Date.now(), text: action.payload }
        state.push(newTodo)
 
      },
-     deleteTodo (state, action: PayloadAction <Number> ){
+     deleteTodo(state, action: PayloadAction <Number> ){
         return state.filter((todo)=> todo.id !== action.payload)
 
      }

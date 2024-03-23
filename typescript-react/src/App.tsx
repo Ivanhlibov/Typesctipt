@@ -5,6 +5,7 @@ import "./App.css";
 import { Todo } from "./types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./redux/store";
+import { Addtodo, deleteTodo } from "./redux/slice";
 
 // Створюємо інтерфейс опису хука usestate Todo
 // Типізуємо параметри в методах addTodo та deleteTodo
@@ -27,10 +28,10 @@ const dispath = useDispatch()
   return (
     <div className="App">
       <h1>Todo List</h1>
-      <AddTodoForm onAdd={(text)=> dispath(addTodo(text))} />
+      <AddTodoForm onAdd={(text)=> dispath(Addtodo(text))} />
       <ul>
         {todo.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} onDelete={()=>dispath(deleteTodo(id))} />
+          <TodoItem key={todo.id} todo={todo} onDelete={()=>dispath(deleteTodo(todo.id))} />
         ))}
       </ul>
     </div>
